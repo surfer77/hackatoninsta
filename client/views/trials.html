@@ -2,23 +2,111 @@
 
 <div class="container">
 
+<h4>
+    Export Followers From Instagram:
+</h4>
+
+<div class="row">
+
 <div class="col-lg-6">
-    <div class="input-group">
+
+<h4>InstaGram Account</h4>
+<div class="radio">
+  <label><input type="radio" name="user" checked>@{{currentUsername}}</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="user" value="yes" id="otherUser"> Someone else's instagram account</label>
+</div>
+</div>
+
+</div>
+
+
+<div class="row">
+
+<div class="col-lg-6">
+
+<h4>Export </h4>
+<div class="radio">
+  <label><input type="radio" name="followType" checked>Followers</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="followType" > People that account follows</label>
+</div>
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-lg-6">
+
+<h4>Level Of Details </h4>
+<div class="radio">
+  <label><input type="radio" name="exportDetails" checked>Fast speed. Gets ID, Username, Full name and Profile Picture.
+</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="exportDetails"> Medium speed. Also gets number of followers.
+</label>
+</div>
+<div class="radio">
+  <label><input type="radio" name="exportDetails"> Slow speed. Also gets the date of the last post and the average number of likes for the last 30 posts.
+</label>
+</div>
+</div>
+
+
+
+</div>
+<div class="row">
+
+
+<button type="button" class="btn btn-success btn-lg">GO!</button>
+</div>
+
+
+
+<div class="row">
+<div class="col-lg-6">
+
+<h3>Results:</h3>
+ {{#each returnSearchedUsers}}
+ <li>
+      {{content}}
+
+ </li>
+ {{/each}}
+  </div>
+  </div>
+</div>
+
+
+
+<!--- Modal
+-->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"> Search for another's user account </h4>
+      </div>
+      <div class="modal-body">
+<div class="input-group">
       <input type="text" class="form-control" placeholder="Search for a user (@example)...">
       <span class="input-group-btn">
         <button class="btn btn-default" type="button" id="searchIgUser">Go!</button>
       </span>
-    </div><!-- /input-group -->
-  </div><!-- /.col-lg-6 -->
+    </div><!-- /input-group -->      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
 
-
-
-<h3>Results:</h3>
- {{#each returnSearchedUsers.data.data}}
- {{object}}
- {{/each}}
   </div>
-
-
+</div>
 
 </template>
