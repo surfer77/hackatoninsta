@@ -17,7 +17,7 @@ Template.trials.events({
          console.log(string);
 });
 
-    },
+   },
 
     "change #otherUser": function(){
                         $('#myModal').modal({
@@ -25,11 +25,18 @@ Template.trials.events({
                     });
     },
 
-/*
-    'click #ads': function() {
+    'click #go': function() {
+        var followedBy = $("#followedBy");
+        var following = $("#following");
+        var exportType = "error";
+        if (following.checked) {
+                 exportType = "follows?";
+                     }else if(followedBy.checked){
+                          exportType = "followed-by?";
+                            }
+
         getInstagramData = Meteor.call("getInstagramData",  function (error, result) {
     userFollows.insert(result);
-});
-*/
-
+        });
+    },
 });
