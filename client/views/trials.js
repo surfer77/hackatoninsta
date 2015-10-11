@@ -6,6 +6,10 @@ Template.trials.helpers({
     currentUsername:function(){
         return Meteor.user().services.instagram.username;
     },
+    currentUserId:function(){
+                return Meteor.user().services.instagram.id;
+
+    },
 
 });
 
@@ -13,8 +17,7 @@ Template.trials.events({
     'click #searchIgUser': function() {
         instagramUser = $(".form-control").val();
         getIgUserId = Meteor.call("getIgUserId", instagramUser,  function (error, result) {
-         var string = JSON.stringify(result);
-         console.log(string);
+         console.log(result);
 });
 
    },
@@ -25,18 +28,34 @@ Template.trials.events({
                     });
     },
 
-    'click #go': function() {
-        var followedBy = $("#followedBy");
-        var following = $("#following");
-        var exportType = "error";
-        if (following.checked) {
-                 exportType = "follows?";
-                     }else if(followedBy.checked){
-                          exportType = "followed-by?";
-                            }
+    "click .radioSelect":function(){
+            if ($( "input:radio[name=followType]:checked" ).val() == "follows?"){
+                exportType = "follows?";
+                console.log(exportType);}
+            else{
+                exportType = "followed-by?";
+            console.log(exportType);   }
 
-        getInstagramData = Meteor.call("getInstagramData",  function (error, result) {
-    userFollows.insert(result);
-        });
+    },
+
+
+    'click #submitButton': function() {
+        getInstagramData = Meteor.call("getInstagramData", userPicked, exportType,  function (error, result) {
+         console.log(result);
+});
     },
 });
+
+
+Template.trials.onRendered( function(){
+     exportType = "followed-by?";
+     userPicked = Meteor.user().services.instagram.id;
+
+
+
+
+});
+
+
+
+

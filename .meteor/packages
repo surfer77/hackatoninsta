@@ -3,8 +3,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-accounts-password
-accounts-google
 service-configuration
 twbs:bootstrap
 
@@ -31,3 +29,4 @@ bozhao:accounts-instagram
 simple:reactive-method
 autopublish
 insecure
+accounts-password

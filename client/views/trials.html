@@ -12,7 +12,7 @@
 
 <h4>InstaGram Account</h4>
 <div class="radio">
-  <label><input type="radio" name="user" checked>@{{currentUsername}}</label>
+  <label><input type="radio" name="user"  value="{{currentUserId}}" checked>@{{currentUsername}}</label>
 </div>
 <div class="radio">
   <label><input type="radio" name="user" value="yes" id="otherUser"> Someone else's instagram account</label>
@@ -28,10 +28,10 @@
 
 <h4>Export </h4>
 <div class="radio">
-  <label><input type="radio" name="followType" id="followedBy" checked>Followers</label>
+  <label><input type="radio" name="followType" id="followedBy" value="followed-by?" class="radioSelect"  checked>Followers</label>
 </div>
 <div class="radio">
-  <label><input type="radio" name="followType" id="following"> People that account follows</label>
+  <label><input type="radio" name="followType" id="following" value="follows?" class="radioSelect"> People that account follows</label>
 </div>
 </div>
 
@@ -55,30 +55,13 @@
 </label>
 </div>
 </div>
-
-
-
-</div>
-<div class="row">
-
-
-<button type="button" class="btn btn-success btn-lg">GO!</button>
 </div>
 
 
-
 <div class="row">
-<div class="col-lg-6">
+<button type="button" class="btn btn-success btn-lg" id="submitButton" >GO!</button>
+</div>
 
-<h3>Results:</h3>
- {{#each returnSearchedUsers}}
- <li>
-      {{content}}
-
- </li>
- {{/each}}
-  </div>
-  </div>
 </div>
 
 

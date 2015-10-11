@@ -39,6 +39,7 @@ Meteor.startup(function() {
     scope:'basic',
     secret: "ad92136bd0d4481787b7c1373c0edc92"
   });
+  /*
 
   // Add Google configuration entry
   ServiceConfiguration.configurations.update(
@@ -51,6 +52,7 @@ Meteor.startup(function() {
     },
     { upsert: true }
   );
+*/
 
   // Add Linkedin configuration entry
   /*
