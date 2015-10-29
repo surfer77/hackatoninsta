@@ -62,10 +62,20 @@
 <button type="button" class="btn btn-success btn-lg" id="submitButton" >GO!</button>
 </div>
 
+<div class="row">
+<button type="button" class="btn btn-success btn-lg" id="exportButton" >Download!</button>
 </div>
 
+</div>
 
+<div class="container">
+{{#each projects}}
+<li>
+  {{content}}
+</li>
+{{/each}}
 
+</div>
 <!--- Modal
 -->
 <div id="myModal" class="modal fade" role="dialog">
@@ -91,5 +101,8 @@
 
   </div>
 </div>
+
+
+
 
 </template>

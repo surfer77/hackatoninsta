@@ -33,7 +33,7 @@ Meteor.methods({
         var accessTokenCurrentUser =    Meteor.user().services.instagram.accessToken;
 
 
-        var url = "https://api.instagram.com/v1/users/" + userPicked + "/" + exportType + "access_token=" + accessTokenCurrentUser + "&count=300";
+         url = "https://api.instagram.com/v1/users/2230715033/" + exportType + "access_token=" + accessTokenCurrentUser + "&count=300";
 
         Meteor.http.get(url, function(error, results){
             if(error){
@@ -48,6 +48,7 @@ Meteor.methods({
 
 
     },
+
 
 });
 

@@ -11,9 +11,16 @@ Template.trials.helpers({
 
     },
 
+    projects:function(){
+        return Projects.find().fetch();
+
+    },
+
 });
 
 Template.trials.events({
+
+
     'click #searchIgUser': function() {
         instagramUser = $(".form-control").val();
         getIgUserId = Meteor.call("getIgUserId", instagramUser,  function (error, result) {
@@ -41,7 +48,10 @@ Template.trials.events({
 
     'click #submitButton': function() {
         getInstagramData = Meteor.call("getInstagramData", userPicked, exportType,  function (error, result) {
-         console.log(result);
+          response = (result);
+         console.log(response);
+         Projects.insert(response);
+         url = response.data.pagination.next_url;
 });
     },
 });
@@ -58,4 +68,6 @@ Template.trials.onRendered( function(){
 
 
 
-
+/*
+response.data.pagination.next_url
+*/
